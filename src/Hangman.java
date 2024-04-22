@@ -16,8 +16,7 @@ public class Hangman {
         System.out.println(tabMotTrouve);
         System.out.println(tabMot);
 
-
-        myUtil.saisirLettre();
+        myUtil.trouverMotMystere(tabMot, tabMotTrouve);
 
     }
 }

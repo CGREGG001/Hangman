@@ -51,4 +51,31 @@ public class myUtil {
         return lettre;
     }
 
+    public static void trouverMotMystere (char tabMot[], char tabMotTrouve[]) {
+        int cpt = 0;
+        int nbreEssais = 7;
+        char lettre;
+        boolean lettreTrouve;
+
+        while (cpt < tabMot.length && nbreEssais > 0) {
+            lettreTrouve = false;
+            lettre = myUtil.saisirLettre();
+            for (int i = 0; i < tabMot.length; i++) {
+                if (tabMot[i] == lettre && tabMotTrouve[i] != lettre) {
+                    // remlacement du _ par la lettre trouvée
+                    tabMotTrouve[i] = lettre;
+                    lettreTrouve = true;
+                    cpt++;
+                }
+            }
+            if (!lettreTrouve) {
+                nbreEssais--;
+            }
+
+            System.out.println("You have " + nbreEssais + " attemps left");
+            System.out.println();
+            System.out.println(tabMotTrouve);
+        }
+    }
+
 }
