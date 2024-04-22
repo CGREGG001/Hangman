@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class myUtil {
 
     public static char [] initialiserTabMotTrouve(char tabMot[]) {
@@ -18,6 +20,35 @@ public class myUtil {
         System.out.println("Guess the mystery word");
         System.out.println("You have the right to 7 errors");
         System.out.println();
+    }
+
+    public static char saisirLettre() {
+        // fonction retour du caractère saisi par l'utilisateur avec vérification
+
+        char lettre = ' ';
+        boolean ok;
+
+        do {
+            ok = true;
+            try {
+                System.out.println("Enter a letter");
+                lettre = new Scanner(System.in).nextLine().toUpperCase().charAt(0);
+                ok = true;
+            } catch (Exception e) {
+                System.out.println("A letter please !");
+                ok = false;
+            }
+
+            if (lettre < 65 || lettre > 90) {
+                // 65 - 90 valeur ascii des lettres en M%ajuscule
+                // 97 - 122 valeur des lettres en minuscule
+                System.out.println("A letter from A to Z please");
+                ok = false;
+            }
+
+        } while (!ok);
+
+        return lettre;
     }
 
 }
