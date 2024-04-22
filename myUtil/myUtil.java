@@ -22,6 +22,7 @@ public class myUtil {
         System.out.println();
     }
 
+    @SuppressWarnings("resource")
     public static char saisirLettre() {
         // fonction retour du caractère saisi par l'utilisateur avec vérification
         char lettre = ' ';
