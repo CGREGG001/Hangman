@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class myUtil {
 
-    public static char [] initialiserTabMotTrouve(char tabMot[]) {
+    public static char[] initialiserTabMotTrouve(char tabMot[]) {
         // création et initialisation du tableau avec caractère _
         char tabMotTrouve[];
 
@@ -13,8 +13,8 @@ public class myUtil {
         return tabMotTrouve;
     }
 
-    public static void bienvenue(){
-        // message d'accueil 
+    public static void bienvenue() {
+        // message d'accueil
         System.out.println("Welcom to the hangman game");
         System.out.println();
         System.out.println("Guess the mystery word");
@@ -24,7 +24,6 @@ public class myUtil {
 
     public static char saisirLettre() {
         // fonction retour du caractère saisi par l'utilisateur avec vérification
-
         char lettre = ' ';
         boolean ok;
 
@@ -51,7 +50,7 @@ public class myUtil {
         return lettre;
     }
 
-    public static void trouverMotMystere (char tabMot[], char tabMotTrouve[]) {
+    public static void trouverMotMystere(char tabMot[], char tabMotTrouve[]) {
         int cpt = 0;
         int nbreEssais = 7;
         char lettre;
@@ -73,8 +72,95 @@ public class myUtil {
             }
 
             System.out.println("You have " + nbreEssais + " attemps left");
+            afficherPendu(nbreEssais);
             System.out.println();
             System.out.println(tabMotTrouve);
+        }
+
+        if (nbreEssais == 0) {
+            System.out.println("You lose");
+            System.out.println("The mystery word was ");
+            System.out.println(tabMot);
+        } else {
+            System.out.println("Congratulations ! you win");
+        }
+    }
+
+    public static void afficherPendu(int nbreEssais) {
+        // affichage du dessin en fonction du nombre d'erreurs
+        switch (nbreEssais) {
+            case 6:
+                System.out.println("____________");
+                System.out.println(" | /   (¨)");
+                System.out.println(" |/");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            case 5:
+                System.out.println("____________");
+                System.out.println(" | /   (¨)");
+                System.out.println(" |/     |");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            case 4:
+                System.out.println("____________");
+                System.out.println(" | /   (¨)");
+                System.out.println(" |/     |");
+                System.out.println(" |      |");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            case 3:
+                System.out.println("____________");
+                System.out.println(" | /   (¨)");
+                System.out.println(" |/    /|");
+                System.out.println(" |      |");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            case 2:
+                System.out.println("____________");
+                System.out.println(" | /   (¨) ");
+                System.out.println(" |/    /|\\");
+                System.out.println(" |      |  ");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            case 1:
+                System.out.println("____________");
+                System.out.println(" | /   (¨)");
+                System.out.println(" |/    /|\\");
+                System.out.println(" |      |");
+                System.out.println(" |     /");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            case 0:
+                System.out.println("____________");
+                System.out.println(" | /   (¨)");
+                System.out.println(" |/    /|\\");
+                System.out.println(" |      |");
+                System.out.println(" |     / \\");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
+            default:
+                System.out.println("____________");
+                System.out.println(" | /");
+                System.out.println(" |/");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println(" |");
+                System.out.println("---");
+                break;
         }
     }
 
