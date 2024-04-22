@@ -11,4 +11,13 @@ public class myUtil {
         return tabMotTrouve;
     }
 
+    public static void bienvenue(){
+        // message d'accueil 
+        System.out.println("Welcom to the hangman game");
+        System.out.println();
+        System.out.println("Guess the mystery word");
+        System.out.println("You have the right to 7 errors");
+        System.out.println();
+    }
+
 }
